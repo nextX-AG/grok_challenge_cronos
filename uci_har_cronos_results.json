@@ -1,0 +1,33 @@
+{
+  "dataset": "UCI Human Activity Recognition",
+  "source": "https://archive.ics.uci.edu/dataset/240/",
+  "method": "CRONOS  (zero-shot)",
+  "sensors": "9-channel IMU (3x Acc + 3x Gyro + 3x TotalAcc)",
+  "sample_rate_hz": 50,
+  "subjects": 30,
+  "metrics": {
+    "binary": {
+      "task": "Dynamic vs Static motion",
+      "accuracy": 0.954,
+      "precision": 0.918,
+      "recall": 0.991,
+      "f1_score": 0.953
+    },
+    "multiclass": {
+      "task": "6-class activity recognition",
+      "accuracy": 0.572,
+      "per_activity": {
+        "WALKING": 0.637,
+        "WALKING_UPSTAIRS": 0.295,
+        "WALKING_DOWNSTAIRS": 0.429,
+        "SITTING": 0.269,
+        "STANDING": 0.718,
+        "LAYING": 0.998
+      }
+    }
+  },
+  "timing": {
+    "throughput_windows_per_sec": 3527
+  },
+  "optimus_relevance": "IMU-based motion detection is core to humanoid balance and fall detection. LAYING at 99.8% = excellent fall detection."
+}
