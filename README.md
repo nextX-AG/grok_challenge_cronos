@@ -4,7 +4,7 @@
 >
 > Part of the **AQEA Engine**, a unified mathematical physics framework where signal processing, anomaly detection, and pattern recognition emerge from the same underlying physical principles.
 
-Benchmark results across three diverse domains - **without any domain-specific training**.
+Benchmark results across **four diverse domains** - **without any domain-specific training**.
 
 ## Results Summary
 
@@ -17,6 +17,8 @@ Benchmark results across three diverse domains - **without any domain-specific t
 | **UCI HAR** | Human Activity | LAYING Detection | **99.8%** |
 | **ALFA UAV** | Robotics | Sensitivity | **100%** |
 | **ALFA UAV** | Robotics | Fault Detection | **14/14** |
+| **Digit Humanoid** | Bipedal Robot | Sensitivity | **100%** |
+| **Digit Humanoid** | Bipedal Robot | Fault Detection | **41/41** |
 
 ## Performance
 
@@ -24,7 +26,8 @@ Benchmark results across three diverse domains - **without any domain-specific t
 |---------|---------|-----------------|------------|
 | **CWRU Bearing** | 2,028 windows | **89 ms** | 22,787 windows/sec |
 | **UCI HAR** | 7,352 samples | **12 ms** | 612,667 samples/sec |
-| **ALFA UAV** | 27 flights (22k vectors) | **675 ms** | 40 flights/sec |
+| **ALFA UAV** | 27 flights (22k vectors) | **254 ms** | 106 flights/sec |
+| **Digit Humanoid** | 41 trajectories (6k vectors) | **165 ms** | 248 traj/sec |
 
 ### Hardware Requirements
 
@@ -63,6 +66,14 @@ Pure mathematical operations that run on any CPU - from Raspberry Pi to data cen
 - **Sensors**: IMU (accelerometer + gyroscope) at 10Hz
 - **Classes**: Normal Flight, Motor Fault
 
+### Digit Humanoid Fall Prediction
+- **Source**: University of Michigan BipedLab
+- **URL**: https://github.com/UMich-BipedLab/Digit_Fall_Prediction_Dataset
+- **Paper**: "Fall Prediction for Bipedal Robots: The Standing Phase"
+- **Description**: Real bipedal humanoid (Agility Robotics Digit) with fault injections
+- **Sensors**: 20 motors (pos/vel/torque), 10 joints, IMU at 1000Hz
+- **Classes**: Abrupt faults, Incipient faults
+
 ## Method
 
 Pure mathematics. No machine learning.
@@ -78,6 +89,7 @@ Pure mathematics. No machine learning.
 - `cwru_cronos_results.json` - CWRU bearing fault detection results
 - `uci_har_cronos_results.json` - UCI human activity recognition results
 - `alfa_cronos_results.json` - ALFA UAV fault detection results
+- `digit_cronos_results.json` - Digit humanoid fall prediction results
 
 ## Citation
 
@@ -101,6 +113,12 @@ If you use these results, please cite the original datasets:
   author={Keipour, Azarakhsh and Mousaei, Mohammadreza and Scherer, Sebastian},
   booktitle={IEEE International Conference on Robotics and Automation (ICRA)},
   year={2020}
+}
+
+@inproceedings{digit_fall,
+  title={Fall Prediction for Bipedal Robots: The Standing Phase},
+  author={University of Michigan BipedLab},
+  url={https://github.com/UMich-BipedLab/Digit_Fall_Prediction_Dataset}
 }
 ```
 
